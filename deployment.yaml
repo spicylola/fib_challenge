@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fib-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fib-challenge
+  template:
+    metadata:
+      labels:
+        app: fib-challenge
+    spec:
+      containers:
+        - name: fib-challenge
+          image: /fib-challenge
+          ports:
+            - containerPort: 5000
