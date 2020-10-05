@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: fib-challenge
-          image: /fib-challenge
+          image: lolashonaikedev/fibonacci_challenge:v1
           ports:
-            - containerPort: 5000
+            - containerPort: 8080
