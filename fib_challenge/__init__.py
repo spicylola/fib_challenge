@@ -21,7 +21,6 @@ def calc_fibonacci():
         else:
             fib_num = fib_num_list[i-1]+fib_num_list[i-2]
             fib_num_list.append(fib_num)
-    print(fib_num_list)
     return "The fibonacci sequence is {} for the number: {}".format(str(fib_num_list), num)
 
 if __name__ == '__main__':
