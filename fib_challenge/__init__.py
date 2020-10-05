@@ -1,3 +1,6 @@
+"""
+Contains fibonacci application
+"""
 from flask import Flask, request
 from werkzeug.exceptions import BadRequest
 
@@ -9,14 +12,16 @@ def calc_fibonacci():
     num = request.args.get("num", None)
     if not num:
         raise BadRequest("Please provide the number param.")
+
     try:
         num = int(num)
-    except Exception as e:
-        raise BadRequest("The number is not a valid integer for {0} with error {1}".format(num,str(e)))
+    except ValueError as error:
+        raise BadRequest("The number is not a valid integer for {0} with error {1}"
+                         .format(num,str(error)))
 
     fib_num_list = []
     for i in range(num+1):
-        if i == 0 or i == 1:
+        if i in [0, 1]:
             fib_num_list.append(i)
         else:
             fib_num = fib_num_list[i-1]+fib_num_list[i-2]
@@ -25,3 +30,4 @@ def calc_fibonacci():
 
 if __name__ == '__main__':
     app.run()
+
